@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Cálculo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Derivadas e Integrales</h1>
+    <textarea id="input" placeholder="Escribe tu función, por ejemplo: x^2"></textarea>
+    
+    <div class="buttons">
+      <button onclick="resolver('derivada')">Derivada</button>
+      <button onclick="resolver('integral')">Integral</button>
+    </div>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
