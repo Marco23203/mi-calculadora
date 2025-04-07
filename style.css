@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Derivadas e Integrales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Derivadas e Integrales</h1>
+    
+    <textarea id="input" placeholder="Escribe tu función, por ejemplo: x^2 + 3*x"></textarea>
+    
+    <div class="buttons">
+      <button onclick="resolver('derivada')">Derivada</button>
+      <button onclick="resolver('integral')">Integral</button>
+    </div>
+
+    <div class="resultado" id="resultado"></div>
+
+    <!-- Nuevo botón para abrir instrucciones -->
+    <button onclick="mostrarInstrucciones()">Ver Instrucciones</button>
+
+    <!-- Contenedor para las instrucciones -->
+    <div id="instrucciones" style="display: none;">
+      <h2>Cómo usar</h2>
+      <ol>
+        <li>Escribe una función como <code>x^2 + 3*x</code></li>
+        <li>Haz clic en "Derivada" o "Integral"</li>
+        <li>Verás el resultado abajo</li>
+      </ol>
+
+      <h2>Tecnologías</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li><a href="https://mathjs.org/">math.js</a></li>
+      </ul>
+
+      <h2>Cómo correr el proyecto localmente</h2>
+      <ol>
+        <li>Clona el repositorio:
+          <pre><code>git clone https://github.com/marco23203/mi-calculadora.git</code></pre>
+        </li>
+        <li>Abre <code>index.html</code> en tu navegador</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
