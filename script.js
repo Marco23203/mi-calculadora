@@ -5,8 +5,8 @@ function resolver(tipo) {
   let resultado;
 
   try {
-    // Aseguramos que la entrada se simplifique antes de procesarla
-    const expr = math.simplify(entrada); // Simplificamos la expresión antes de analizarla
+    // Parseamos la entrada sin simplificarla
+    const expr = math.parse(entrada); 
 
     if (tipo === "derivada") {
       // Derivada simbólica utilizando math.js
