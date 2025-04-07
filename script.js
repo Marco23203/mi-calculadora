@@ -8,10 +8,15 @@ function resolver(tipo) {
 
   try {
     if (tipo === "derivada") {
-      resultado = math.derivative(entrada, 'x').toString();
+      // Derivada simbólica utilizando math.js
+      const expr = math.parse(entrada);
+      const derivada = math.derivative(expr, 'x'); // Derivada con respecto a 'x'
+      resultado = derivada.toString();
     } else if (tipo === "integral") {
-      // Aquí debes añadir lógica para resolver la integral
-      resultado = `Integral indefinida de ${entrada} dx (solo simbólica, no computa como Wolfram)`;
+      // Integral indefinida simbólica utilizando math.js
+      const expr = math.parse(entrada);
+      const integral = math.integral(expr, 'x'); // Integral con respecto a 'x'
+      resultado = integral.toString();
     }
 
     document.getElementById("resultado").innerText = resultado;
