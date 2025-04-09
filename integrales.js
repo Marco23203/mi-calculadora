@@ -1,12 +1,11 @@
 function calcularIntegral() {
     const entrada = document.getElementById("input").value;
     const variable = document.getElementById("variable").value;
-    const apiKey = "E9KHL6-ALTQT5UJEE";  // My API que estoy usando en Wolfram
+    const apiKey = "E9KHL6-ALTQT5UJEE";  // Mi API que estoy usando en Wolfram
 
-    
     const url = `https://api.wolframalpha.com/v2/query?input=integrate%20${encodeURIComponent(entrada)}%20d${variable}&format=plaintext&output=JSON&appid=${apiKey}`;
 
-    console.log("URL generada:", url);  
+    console.log("URL generada:", url);
 
     // Proxy
     const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -21,12 +20,10 @@ function calcularIntegral() {
         .then(data => {
             console.log("Respuesta de la API:", data);  // Respuesta 
 
-            
             if (data.queryresult && data.queryresult.pods) {
                 const pods = data.queryresult.pods;
                 console.log("Pods encontrados:", pods);  
 
-                
                 const resultadoPod = pods.find(pod =>
                     pod.title.toLowerCase().includes("integral") ||
                     pod.title.toLowerCase().includes("result") ||
@@ -36,11 +33,19 @@ function calcularIntegral() {
                 if (resultadoPod && resultadoPod.subpods && resultadoPod.subpods[0].plaintext) {
                     const resultado = resultadoPod.subpods[0].plaintext;
 
-                    
                     const resultadoSimplificado = resultado.replace(/^.*?= /, '= ').replace(/\n/g, ' ');
 
+                    // Determinar si es integral simple, doble o triple
+                    let tipoIntegral = "Integral Simple";  // Default
+                    if (entrada.includes("dx") && (entrada.includes("dy") || entrada.includes("dz"))) {
+                        tipoIntegral = "Integral Doble";
+                    }
+                    if (entrada.includes("dx") && entrada.includes("dy") && entrada.includes("dz")) {
+                        tipoIntegral = "Integral Triple";
+                    }
+
                     // Mostrar el resultado 
-                    document.getElementById("resultadoIntegralTexto").innerText = resultadoSimplificado;
+                    document.getElementById("resultadoIntegralTexto").innerText = `${resultadoSimplificado}\n\nTipo de Integral: ${tipoIntegral}`;
                 } else {
                     console.error("No se encontró un resultado claro en los pods.");
                     document.getElementById("resultadoIntegralTexto").innerText = "No se encontró un resultado claro en los pods.";
