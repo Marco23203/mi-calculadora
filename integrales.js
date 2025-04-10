@@ -1,16 +1,16 @@
 function calcularIntegral() {
     const entrada = document.getElementById("input").value;
     const variable = document.getElementById("variable").value;
-    const apiKey = "E9KHL6-ALTQT5UJEE";  // Mi API que estoy usando en Wolfram
+    const apiKey = "E9KHL6-ALTQT5UJEE";  // Tu API key de Wolfram
 
     const url = `https://api.wolframalpha.com/v2/query?input=integrate%20${encodeURIComponent(entrada)}%20d${variable}&format=plaintext&output=JSON&appid=${apiKey}`;
 
     console.log("URL generada:", url);
 
-    // Proxy
-    const proxy = "https://cors-anywhere.herokuapp.com/";
+    // Nuevo proxy
+    const proxy = "https://api.allorigins.win/raw?url=";
 
-    fetch(proxy + url)
+    fetch(proxy + encodeURIComponent(url))
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error en la solicitud a WolframAlpha: " + response.status);
@@ -18,11 +18,11 @@ function calcularIntegral() {
             return response.json();
         })
         .then(data => {
-            console.log("Respuesta de la API:", data);  // Respuesta 
+            console.log("Respuesta de la API:", data);
 
             if (data.queryresult && data.queryresult.pods) {
                 const pods = data.queryresult.pods;
-                console.log("Pods encontrados:", pods);  
+                console.log("Pods encontrados:", pods);
 
                 const resultadoPod = pods.find(pod =>
                     pod.title.toLowerCase().includes("integral") ||
@@ -35,8 +35,8 @@ function calcularIntegral() {
 
                     const resultadoSimplificado = resultado.replace(/^.*?= /, '= ').replace(/\n/g, ' ');
 
-                    // Determinar si es integral simple, doble o triple
-                    let tipoIntegral = "Integral Simple";  // Default
+                    // Determinar el tipo de integral
+                    let tipoIntegral = "Integral Simple";
                     if (entrada.includes("dx") && (entrada.includes("dy") || entrada.includes("dz"))) {
                         tipoIntegral = "Integral Doble";
                     }
@@ -44,7 +44,6 @@ function calcularIntegral() {
                         tipoIntegral = "Integral Triple";
                     }
 
-                    // Mostrar el resultado 
                     document.getElementById("resultadoIntegralTexto").innerText = `${resultadoSimplificado}\n\nTipo de Integral: ${tipoIntegral}`;
                 } else {
                     console.error("No se encontró un resultado claro en los pods.");
