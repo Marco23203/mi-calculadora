@@ -9,15 +9,15 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .fondo {
-      background-image: url('imagen.jpg'); 
-      background-size: cover; 
-      background-position: center; 
-      background-repeat: no-repeat; 
-      background-attachment: fixed; 
+      background-image: url('imagen.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       height: 100%;
       display: flex;
       justify-content: center;
@@ -27,7 +27,6 @@
       position: relative;
     }
 
-    
     .fondo::before {
       content: "";
       position: absolute;
@@ -35,22 +34,22 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.5); 
+      background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
     .contenido {
-      background-color: rgba(0, 0, 0, 0.7); 
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 40px 20px;
       border-radius: 10px;
       position: relative;
       z-index: 1;
-      max-width: 90%; 
-      width: 400px; 
+      max-width: 90%;
+      width: 400px;
     }
 
     h1 {
-      font-size: 2.2rem; 
+      font-size: 2.2rem;
       margin-bottom: 15px;
     }
 
@@ -68,18 +67,17 @@
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.3s ease; 
+      transition: background-color 0.3s ease;
     }
 
     .boton:hover {
       background-color: #0056b3;
     }
 
-    
     .imagen-abajo {
       margin-top: 25px;
-      width: 30%; 
-      max-width: 150px; 
+      width: 30%;
+      max-width: 150px;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -87,17 +85,13 @@
   </style>
 </head>
 <body>
-
   <div class="fondo">
     <div class="contenido">
       <h1>Bienvenido a la Calculadora de Derivadas e Integrales</h1>
       <p>Haz clic en el botón para comenzar</p>
-      <a href="https://marco23203.github.io/mi-calculadora/" class="boton">Ir a la Calculadora</a>
-
-    
+      <a href="calculadora.html" class="boton">Ir a la Calculadora</a>
       <img src="camaleon.jpg" alt="Imagen debajo del botón" class="imagen-abajo">
     </div>
   </div>
-
 </body>
 </html>
