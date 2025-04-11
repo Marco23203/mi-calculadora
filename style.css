@@ -1,0 +1,135 @@
+/* Estilos globales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-area textarea,
+.input-area input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fafafa;
+  color: #333;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.input-area textarea:focus,
+.input-area input:focus {
+  border-color: #007bff;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.action-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.action-buttons > div {
+  margin-bottom: 10px;
+}
+
+.resultado {
+  margin-top: 20px;
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.resultado h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#botonInstrucciones {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #28a745;
+  font-size: 16px;
+}
+
+#botonInstrucciones:hover {
+  background-color: #218838;
+}
+
+#instrucciones {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#instrucciones h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#instrucciones ol {
+  margin-left: 20px;
+  color: #555;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .buttons {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
